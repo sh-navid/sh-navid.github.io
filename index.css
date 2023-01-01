@@ -1,3 +1,37 @@
-.f-field{
-   border: 1px solid blue;
+:root {
+   --color-primary: hotpink;
+   --color-text-over-primary: #ffffff;
+   --color-background: #212121;
+   --color-text: #ffffff;
+   /**/
+   --add-btn-size: 4em;
+}
+
+html,body {
+   padding: 0;
+   margin: 0;
+}
+
+body {
+   background-color: var(--color-background);
+}
+
+.f-field {
+   border: 1px solid var(--color-primary);
+   color:var(--color-text);
+   padding:1em !important;
+}
+
+
+.btn-add-task {
+   border-radius: 100%;
+   background-color: var(--color-primary);
+   display: block;
+   margin: 0 auto;
+   width: var(--add-btn-size);
+   height: var(--add-btn-size);
+   text-align: center;
+   line-height: var(--add-btn-size);
+   user-select: none;
+   cursor: pointer;
 }
