@@ -2,19 +2,47 @@
 <html lang="en">
 
 <head>
+    <link rel="manifest" href="app.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Micro Web Apps">
+    <meta name="apple-mobile-web-app-title" content="Micro Web Apps">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 
+<template class="t-task">
+    <div class="f-field f-input  title" edit="true" view="true">Title</div>
+    <div class="f-field f-switch is-done" edit="false" view="true">IsDone</div>
+    <div class="f-field f-switch is-recursive" edit="true" view="false">IsRecursive</div>
+    <div class="f-field f-button btn-save" edit="true" view="false">Save</div>
+</template>
+
 <body>
-    <a class="button" href="app-goal/app.html">Goal Scheduller</a>
-    <br/>
-    <a class="button" href="">GYM Setting</a>
-    <a class="button" href="">Family Tree</a>
-    <a class="button" href="">PWA Generator</a>
+    <h1>APP</h1>
+    <div class="tasks"></div>
+    <div onclick="add()">Add</div>
 </body>
+
+<script>
+    const add = () => {
+        let tmp = $($(".t-task").html() + "");
+        $(".tasks").append(tmp);
+    }
+</script>
 
 </html>
