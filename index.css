@@ -4,7 +4,7 @@
    --color-background: #212121;
    --color-text: #ffffff;
    /**/
-   --add-btn-size: 7em;
+   --add-btn-size: 6em;
 }
 
 html,body {
@@ -78,6 +78,6 @@ body {
    cursor: pointer;
    color:var(--color-text-over-primary);
    font-weight: bold;
-   margin-top: -2em;
+   margin-top: -3em;
    border: 1em solid #212121;
 }
