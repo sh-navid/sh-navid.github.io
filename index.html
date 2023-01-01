@@ -30,7 +30,7 @@
 <template class="t-task">
     <div class="task row">
         <div class="col s7 m8 f-field f-input  f-title " edit="true" view="true">Title</div>
-        <div class="col s2 m2 f-field f-input  f-date  " edit="true" view="true">Date</div>
+        <div class="col s2 m2 f-field f-input  f-date  " edit="true" view="true"><span>Date</span></div>
         <div class="col s3 m2">
             <div class="row">
                 <div class="col s6 f-field f-switch f-recursive" edit="true" view="true">IsRecursive</div>
@@ -67,7 +67,7 @@
     const add = (isEditMode = true, title = "...", date = "...") => {
         let tmp = $($(".t-task").html() + "");
         tmp.find(".f-title").html(title);
-        tmp.find(".f-date").html(date);
+        tmp.find(".f-date>span").html(date);
 
 
         if(isEditMode){

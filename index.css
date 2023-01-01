@@ -47,6 +47,10 @@ body {
    text-align: center;
 }
 
+.f-date>span{
+   font-size: 80%;
+}
+
 .btn-add-task {
    border-radius: 100%;
    background-color: var(--color-primary);
