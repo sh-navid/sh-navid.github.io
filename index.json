@@ -4,7 +4,7 @@
   "description": "To simply manage and schedule your goals",
   "theme_color": "hotpink",
   "background_color": "#212121",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "./",
   "start_url": "./",
   "lang": "en-US",
