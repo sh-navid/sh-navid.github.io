@@ -4,12 +4,13 @@
    --color-background: #212121;
    --color-text: #ffffff;
    /**/
-   --add-btn-size: 4em;
+   --add-btn-size: 5em;
 }
 
 html,body {
    padding: 0;
    margin: 0;
+   overflow-x: hidden;
 }
 
 body {
@@ -19,7 +20,15 @@ body {
 .banner{
    background-color: var(--color-primary);
    height: 1em;
-   margin-bottom: 2em;
+   position: fixed;
+   display: block;
+   left:0;
+   top:0;
+   right:0;
+}
+
+.banner-dummy{
+   margin-bottom: 3em;
 }
 
 .f-field {
