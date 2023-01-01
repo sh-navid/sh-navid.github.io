@@ -2,7 +2,7 @@
   "name": "Goal Manager",
   "short_name": "Goal Manager",
   "description": "To simply manage and schedule your goals",
-  "theme_color": "#212121",
+  "theme_color": "hotpink",
   "background_color": "#212121",
   "display": "standalone",
   "scope": "./",
