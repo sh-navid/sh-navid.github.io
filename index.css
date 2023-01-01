@@ -65,11 +65,17 @@ body {
    font-size: 80%;
 }
 
+.footer-container{
+   margin: 0 auto;
+   margin-top: -3em;
+   display: inline-block;
+   background-color: blue;
+}
+
 .btn-add-task {
    border-radius: 100%;
    background-color: var(--color-primary);
-   display: block;
-   margin: 0 auto;
+   display: inline-block;
    width: var(--add-btn-size);
    height: var(--add-btn-size);
    text-align: center;
@@ -78,6 +84,5 @@ body {
    cursor: pointer;
    color:var(--color-text-over-primary);
    font-weight: bold;
-   margin-top: -3em;
    border: 1em solid #212121;
 }
