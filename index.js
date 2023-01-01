@@ -4,7 +4,7 @@
 const registerServiceWorker = async () => {
     if ("serviceWorker" in navigator) {
       try {
-        const registration = await navigator.serviceWorker.register("/sw.js", {
+        const registration = await navigator.serviceWorker.register("/index.sw.js", {
           scope: "/",
         });
         if (registration.installing) {
@@ -20,30 +20,4 @@ const registerServiceWorker = async () => {
     }
   };
   
-  // …
-  
   registerServiceWorker();
-  
-
-
-  const addResourcesToCache = async (resources) => {
-    const cache = await caches.open("v1");
-    await cache.addAll(resources);
-  };
-  
-  self.addEventListener("install", (event) => {
-    event.waitUntil(
-      addResourcesToCache([
-        "/",
-        "/index.html",
-        "/style.css",
-        "/app.js",
-        "/image-list.js",
-        "/star-wars-logo.jpg",
-        "/gallery/bountyHunters.jpg",
-        "/gallery/myLittleVader.jpg",
-        "/gallery/snowTroopers.jpg",
-      ])
-    );
-  });
-  
