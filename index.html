@@ -29,19 +29,20 @@
 
 <template class="t-task">
     <div class="task row">
-        <div class="col s8 f-field f-input  f-title    " edit="true" view="true">Title</div>
-        <div class="col s2 f-field f-input  f-date     " edit="true" view="true">Date</div>
-        <div class="col s2">
+        <div class="col s7 m8 f-field f-input  f-title " edit="true" view="true">Title</div>
+        <div class="col s2 m2 f-field f-input  f-date  " edit="true" view="true">Date</div>
+        <div class="col s3 m2">
             <div class="row">
-                <div class="col f-field f-switch f-done     " edit="false" view="true">IsDone</div>
-                <div class="col f-field f-switch f-recursive" edit="true" view="false">IsRecursive</div>
-                <div class="col f-field f-button f-save     " edit="true" view="false">Save</div>
+                <div class="col s6 f-field f-switch f-done     " edit="false" view="true">IsDone</div>
+                <div class="col s6 f-field f-switch f-recursive" edit="true" view="true">IsRecursive</div>
+                <div class="col s6 f-field f-button f-save     " edit="true" view="false">Save</div>
             </div>
         </div>
     </div>
 </template>
 
 <body>
+    <div class="container-fluid banner"></div>
     <div class="container">
         <div class="tasks"></div>
         <div class="btn-add-task" onclick="add()">Add</div>
@@ -50,13 +51,25 @@
 
 <script>
     const data = [
-        { "title": "", "done": false, "repeat": false, "start-date": "2023-01-01" },
+        { "title": "Buy milk", "done": false, "repeat": false, "start-date": "2023-01-01" },
+        { "title": "GYM", "done": false, "repeat": true, "start-date": "2023-01-01" },
+        { "title": "Drink Water", "done": true, "repeat": true, "start-date": "2023-01-01" },
     ];
 
-    const add = () => {
+    const loadTasks = () => {
+        data.forEach((t) => {
+            add(t["title"], t["start-date"]);
+        });
+    }
+
+    const add = (title = "", date = "") => {
         let tmp = $($(".t-task").html() + "");
+        tmp.find("f-title").html(title);
+        tmp.find("f-date").html(date);
         $(".tasks").append(tmp);
     }
+
+    loadTasks();
 </script>
 
 </html>
