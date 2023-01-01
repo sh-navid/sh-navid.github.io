@@ -1,6 +1,6 @@
 :root {
    --color-primary: hotpink;
-   --color-text-over-primary: #ffffff;
+   --color-text-over-primary: #212121;
    --color-background: #212121;
    --color-text: #ffffff;
    /**/
@@ -22,6 +22,15 @@ body {
    padding:1em !important;
 }
 
+.f-button{
+   background-color: var(--color-primary);
+   color:var(--color-text-over-primary);
+   font-weight: bold;
+}
+
+.f-switch,.f-button{
+   text-align: center;
+}
 
 .btn-add-task {
    border-radius: 100%;
@@ -34,4 +43,6 @@ body {
    line-height: var(--add-btn-size);
    user-select: none;
    cursor: pointer;
+   color:var(--color-text-over-primary);
+   font-weight: bold;
 }

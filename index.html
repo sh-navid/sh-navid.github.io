@@ -29,21 +29,30 @@
 
 <template class="t-task">
     <div class="task row">
-        <div class="col s10 f-field f-input  title   " edit="true" view="true">Title</div>
-        <div class="col s2  f-field f-switch is-done " edit="false" view="true">IsDone</div>
-        <div class="col s2  f-field f-switch is-rec  " edit="true" view="false">IsRecursive</div>
-        <div class="col s2  f-field f-button btn-save" edit="true" view="false">Save</div>
+        <div class="col s8 f-field f-input  f-title    " edit="true" view="true">Title</div>
+        <div class="col s2 f-field f-input  f-date     " edit="true" view="true">Date</div>
+        <div class="col s2">
+            <div class="row">
+                <div class="col f-field f-switch f-done     " edit="false" view="true">IsDone</div>
+                <div class="col f-field f-switch f-recursive" edit="true" view="false">IsRecursive</div>
+                <div class="col f-field f-button f-save     " edit="true" view="false">Save</div>
+            </div>
+        </div>
     </div>
 </template>
 
 <body>
-   <div class="container">
-    <div class="tasks"></div>
-    <div class="btn-add-task" onclick="add()">Add</div>
-   </div>
+    <div class="container">
+        <div class="tasks"></div>
+        <div class="btn-add-task" onclick="add()">Add</div>
+    </div>
 </body>
 
 <script>
+    const data = [
+        { "title": "", "done": false, "repeat": false, "start-date": "2023-01-01" },
+    ];
+
     const add = () => {
         let tmp = $($(".t-task").html() + "");
         $(".tasks").append(tmp);
