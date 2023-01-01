@@ -4,7 +4,7 @@
    --color-background: #212121;
    --color-text: #ffffff;
    /**/
-   --add-btn-size: 6em;
+   --add-btn-size: 5.6em;
 }
 
 html,body {
@@ -68,11 +68,10 @@ body {
 .footer-container{
    margin: 0 auto;
    margin-top: -3em;
-   display: inline-block;
-   background-color: blue;
+   text-align: center;
 }
 
-.btn-add-task {
+.footer-btn {
    border-radius: 100%;
    background-color: var(--color-primary);
    display: inline-block;
@@ -84,5 +83,11 @@ body {
    cursor: pointer;
    color:var(--color-text-over-primary);
    font-weight: bold;
-   border: 1em solid #212121;
+   border: .8em solid #212121;
+   margin-left: .7em;
+   margin-right: .7em;
+}
+
+.footer-btn>span{
+   font-size: 90%;
 }
