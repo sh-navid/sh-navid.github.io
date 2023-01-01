@@ -1,0 +1,8 @@
+{
+    "name": "Micro Web Apps",
+    "description": "Collection of some micro web applications",
+    "start_url": "/",
+    "lang": "en-US",
+    "theme_color": "#000000",
+    "display": "standalone"
+  }
