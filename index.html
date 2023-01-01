@@ -26,16 +26,19 @@
 </head>
 
 <template class="t-task">
-    <div class="f-field f-input  title" edit="true" view="true">Title</div>
-    <div class="f-field f-switch is-done" edit="false" view="true">IsDone</div>
-    <div class="f-field f-switch is-recursive" edit="true" view="false">IsRecursive</div>
-    <div class="f-field f-button btn-save" edit="true" view="false">Save</div>
+    <div class="task row">
+        <div class="col s10 f-field f-input  title   " edit="true" view="true">Title</div>
+        <div class="col s2  f-field f-switch is-done " edit="false" view="true">IsDone</div>
+        <div class="col s2  f-field f-switch is-rec  " edit="true" view="false">IsRecursive</div>
+        <div class="col s2  f-field f-button btn-save" edit="true" view="false">Save</div>
+    </div>
 </template>
 
 <body>
-    <h1>APP</h1>
+   <div class="container">
     <div class="tasks"></div>
     <div onclick="add()">Add</div>
+   </div>
 </body>
 
 <script>
