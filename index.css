@@ -8,6 +8,7 @@
 }
 
 * {
+   -webkit-user-select: none;
    user-select: none;
 }
 
@@ -15,7 +16,7 @@ html,
 body {
    padding: 0;
    margin: 0;
-   overflow-x: hidden;
+   overflow: hidden;
 }
 
 body {
@@ -85,7 +86,6 @@ body {
    height: var(--add-btn-size);
    text-align: center;
    line-height: 4em;
-   user-select: none;
    cursor: pointer;
    color: var(--color-text-over-primary);
    font-weight: bold;
