@@ -1,7 +1,7 @@
 // Helper link
 // https://bitsofco.de/setting-up-a-basic-service-worker/
 
-var cacheName = 'v2';
+var cacheName = 'v1.1';
 var cacheFiles = [
 	'./',
 	'./assets/icons/1.png',
@@ -15,7 +15,7 @@ var cacheFiles = [
 // SW: Service Worker
 
 self.addEventListener('install', e => {
-	console.log('[SW] Install');
+	console.log('SW:: Install');
 	e.waitUntil(
 		caches.open(cacheName).then(cache => {
 			console.log('SW:: Caching all: app shell and content');
