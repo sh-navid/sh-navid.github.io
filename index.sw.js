@@ -1,9 +1,12 @@
 // Helper link
 // https://bitsofco.de/setting-up-a-basic-service-worker/
 
-var cacheName = 'v1';
+var cacheName = 'v2';
 var cacheFiles = [
 	'./',
+	'./assets/icons/1.png',
+	'./assets/icons/2.png',
+	'./assets/icons/3.png',
 	'./index.html',
 	'./index.css',
 	'./index.js'
