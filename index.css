@@ -49,6 +49,8 @@ body {
 
 .footer-dummy {
    margin-top: 3em;
+   height: 4em;
+   display: block;
 }
 
 .f-field {
