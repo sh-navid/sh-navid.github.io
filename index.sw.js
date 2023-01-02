@@ -1,5 +1,6 @@
 // Helper link
-//https://bitsofco.de/setting-up-a-basic-service-worker/
+// https://bitsofco.de/setting-up-a-basic-service-worker/
+// https://googlechrome.github.io/samples/service-worker/basic/
 
 
 // Set a name for the current cache
