@@ -1,6 +1,7 @@
 // Helper Links
 // https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
 
+
 const registerServiceWorker = async () => {
     if ("serviceWorker" in navigator) {
       try {
