@@ -92,6 +92,7 @@ body {
    margin-right: .7em;
 }
 
-.footer-btn>span{
-   font-size: 90%;
+.footer-btn>img{
+   margin: 0 auto;
+   width: 70%;
 }
