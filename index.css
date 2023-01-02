@@ -7,11 +7,12 @@
    --add-btn-size: 5.6em;
 }
 
-*{
+* {
    user-select: none;
 }
 
-html,body {
+html,
+body {
    padding: 0;
    margin: 0;
    overflow-x: hidden;
@@ -21,55 +22,56 @@ body {
    background-color: var(--color-background);
 }
 
-.banner{
+.banner {
    background-color: var(--color-primary);
    height: 1em;
    position: fixed;
    display: block;
-   left:0;
-   top:0;
-   right:0;
+   left: 0;
+   top: 0;
+   right: 0;
 }
 
-.banner-dummy{
+.banner-dummy {
    margin-bottom: 3em;
 }
 
-.footer{
+.footer {
    background-color: var(--color-primary);
    height: 4em;
    position: fixed;
    display: block;
-   left:0;
-   bottom:0;
-   right:0;
+   left: 0;
+   bottom: 0;
+   right: 0;
 }
 
-.footer-dummy{
+.footer-dummy {
    margin-top: 3em;
 }
 
 .f-field {
    border: 1px solid var(--color-primary);
-   color:var(--color-text);
-   padding:1em !important;
+   color: var(--color-text);
+   padding: 1em !important;
 }
 
-.f-button{
+.f-button {
    background-color: var(--color-primary);
-   color:var(--color-text-over-primary);
+   color: var(--color-text-over-primary);
    font-weight: bold;
 }
 
-.f-switch,.f-button{
+.f-switch,
+.f-button {
    text-align: center;
 }
 
-.f-date>span{
+.f-date>span {
    font-size: 80%;
 }
 
-.footer-container{
+.footer-container {
    margin: 0 auto;
    margin-top: -3em;
    text-align: center;
@@ -85,14 +87,24 @@ body {
    line-height: 4em;
    user-select: none;
    cursor: pointer;
-   color:var(--color-text-over-primary);
+   color: var(--color-text-over-primary);
    font-weight: bold;
    border: .8em solid #212121;
    margin-left: .7em;
    margin-right: .7em;
+
+
 }
 
-.footer-btn>img{
+.footer-btn>div {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.footer-btn>div>img {
    margin: 0 auto;
    width: 70%;
 }
