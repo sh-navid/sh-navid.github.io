@@ -8,9 +8,12 @@ const registerServiceWorker = async () => {
       const registration = await navigator.serviceWorker.register("/index.sw.js", {
         scope: "/",
       });
-      if (registration.installing) console.log("SW:: installing");
-      else if (registration.waiting) console.log("SW:: installed");
-      else if (registration.active) console.log("SW:: activated");
+      if (registration.installing)
+        console.log("SW:: installing");
+      else if (registration.waiting)
+        console.log("SW:: installed");
+      else if (registration.active)
+        console.log("SW:: activated");
     } catch (error) {
       console.error(`Registration failed:: ${error}`);
     }
