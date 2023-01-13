@@ -5,7 +5,7 @@
    --color-text-over-primary: #efefef;
    --color-background: #212121;
    --color-text: #cecece;
-   --color-footer-button-border:#212121;
+   --color-footer-button-border: #212121;
    /**/
    --add-btn-size: 5.6em;
 }
@@ -15,19 +15,14 @@
    user-select: none;
 }
 
-html,
-body {
-   padding: 0;
-   margin: 0;
-   overflow-x: hidden;
-}
-
 html {
-   /* overflow: hidden !important; */
+   touch-action: none;
 }
 
 body {
    background-color: var(--color-background);
+   padding: 0;
+   margin: 0;
 }
 
 .banner {
@@ -73,33 +68,35 @@ body {
    text-align: center;
 }
 
-.f-word{
+.f-word {
    position: relative;
    cursor: pointer;
 }
 
-.f-dec{
+.f-dec {
    background-color: var(--color-accent);
 }
 
-.f-inc{
+.f-inc {
    background-color: rgb(14, 102, 90);
 }
 
-.f-trans{
+.f-trans {
    direction: rtl;
    background-color: var(--color-accent);
    color: var(--color-text-over-primary);
    transition: all 1s;
    position: absolute;
    opacity: 0;
-   left:0;
-   top:0;
-   right:0;
+   left: 0;
+   top: 0;
+   right: 0;
    bottom: 0;
+   text-align: center;
+   line-height: 3.4em;
 }
 
-.f-trans.active{
+.f-trans.active {
    opacity: 1;
 }
 
