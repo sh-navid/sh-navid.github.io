@@ -1,8 +1,11 @@
 :root {
-   --color-primary: hotpink;
-   --color-text-over-primary: #212121;
+   --color-primary-dark: #303030;
+   --color-primary: #414141;
+   --color-accent: #b11f57;
+   --color-text-over-primary: #efefef;
    --color-background: #212121;
-   --color-text: #ffffff;
+   --color-text: #cecece;
+   --color-footer-button-border:#212121;
    /**/
    --add-btn-size: 5.6em;
 }
@@ -28,7 +31,7 @@ body {
 }
 
 .banner {
-   background-color: var(--color-primary);
+   background-color: var(--color-primary-dark);
    height: 1em;
    position: fixed;
    display: block;
@@ -42,7 +45,7 @@ body {
 }
 
 .footer {
-   background-color: var(--color-primary);
+   background-color: var(--color-primary-dark);
    height: 4em;
    position: fixed;
    display: block;
@@ -58,20 +61,24 @@ body {
 }
 
 .f-field {
-   border: 1px solid var(--color-primary);
-   color: var(--color-text);
-   padding: 1em !important;
-}
-
-.f-button {
+   border: 1px solid var(--color-background);
    background-color: var(--color-primary);
-   color: var(--color-text-over-primary);
-   font-weight: bold;
+   color: var(--color-text);
+   padding: 1.2em !important;
 }
 
-.f-switch,
-.f-button {
+.f-dec,
+.f-inc,
+.f-score {
    text-align: center;
+}
+
+.f-dec{
+   background-color: rgb(138, 35, 83);
+}
+
+.f-inc{
+   background-color: rgb(14, 102, 90);
 }
 
 .f-date>span {
@@ -86,7 +93,7 @@ body {
 
 .footer-btn {
    border-radius: 100%;
-   background-color: var(--color-primary);
+   background-color: var(--color-accent);
    display: inline-block;
    width: var(--add-btn-size);
    height: var(--add-btn-size);
@@ -95,7 +102,7 @@ body {
    cursor: pointer;
    color: var(--color-text-over-primary);
    font-weight: bold;
-   border: .8em solid #212121;
+   border: .8em solid var(--color-footer-button-border);
    margin-left: .7em;
    margin-right: .7em;
 }
@@ -111,4 +118,5 @@ body {
 .footer-btn>div>img {
    margin: 0 auto;
    width: 70%;
+   filter: invert(100%);
 }
