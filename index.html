@@ -8,8 +8,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Micro Web Apps">
     <meta name="apple-mobile-web-app-title" content="Micro Web Apps">
-    <meta name="theme-color" content="hotpink">
-    <meta name="msapplication-navbutton-color" content="hotpink">
+    <meta name="theme-color" content="#212121">
+    <meta name="msapplication-navbutton-color" content="#212121">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-starturl" content="/">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no; viewport-fit=cover">
@@ -32,15 +32,11 @@
 
 <template class="t-task">
     <div class="task row">
-        <div class="col s5 m8 f-field f-input  f-title " edit="true" view="true">Title</div>
-        <div class="col s3 m2 f-field f-input  f-date  " edit="true" view="true"><span>Date</span></div>
-        <div class="col s4 m2">
-            <div class="row">
-                <div class="col s6 f-field f-switch f-recursive" edit="true" view="true">Rec</div>
-                <div class="col s6 f-field f-switch f-done     " edit="false" view="true">Done</div>
-                <div class="col s6 f-field f-button f-save     " edit="true" view="false">Save</div>
-            </div>
-        </div>
+        <div class="col s4 m4 f-field   f-title ">Word</div>
+        <div class="col s4 m5 f-field   f-trans ">Trans</div>
+        <div class="col s1 m1 f-field   f-dec   ">-</div>
+        <div class="col s2 m1 f-field   f-score ">0</div>
+        <div class="col s1 m1 f-field   f-inc   ">+</div>
     </div>
 </template>
 
@@ -52,9 +48,15 @@
     </div>
     <div class="container-fluid footer">
         <div class="footer-container">
-            <div class="footer-btn" onclick="add()"><div><img src="assets/icons/1.png" alt=""/></div></div>
-            <div class="footer-btn" onclick="add()"><div><img src="assets/icons/2.png" alt=""/></div></div>
-            <div class="footer-btn" onclick="add()"><div><img src="assets/icons/3.png" alt=""/></div></div>
+            <div class="footer-btn" onclick="add()">
+                <div><img src="assets/icons/1.png" alt="" /></div>
+            </div>
+            <div class="footer-btn" onclick="add()">
+                <div><img src="assets/icons/2.png" alt="" /></div>
+            </div>
+            <div class="footer-btn" onclick="add()">
+                <div><img src="assets/icons/3.png" alt="" /></div>
+            </div>
         </div>
     </div>
     <div class="container-fluid footer-dummy"></div>
@@ -62,22 +64,28 @@
 
 <script>
     const data = [
-        { "title": "Buy milk", "done": false, "repeat": false, "start-date": "2023-01-01" },
-        { "title": "GYM", "done": false, "repeat": true, "start-date": "2023-01-01" },
-        { "title": "Drink Water", "done": true, "repeat": true, "start-date": "2023-01-01" },
-        { "title": "Job", "done": true, "repeat": true, "start-date": "2023-01-01" },
+        { word: "Abandon", score: 0 },
+        { word: "Keen", score: 0 },
+        { word: "Jealous", score: 0 },
+        { word: "Tact", score: 0 },
+        { word: "Oath", score: 0 },
+        { word: "Vacant", score: 0 },
+        { word: "Hardship", score: 0 },
+        { word: "Gallant", score: 0 },
+        { word: "Data", score: 0 },
+        { word: "Unaccustomed", score: 0 },
     ];
 
     const loadTasks = () => {
         data.forEach((t) => {
-            add(false, t["title"], t["start-date"]);
+            add(false, t["word"], t["trans"]);
         });
     }
 
     const add = (isEditMode = true, title = "...", date = "...") => {
         let tmp = $($(".t-task").html() + "");
         tmp.find(".f-title").html(title);
-        tmp.find(".f-date>span").html(date);
+        tmp.find(".f-trans>span").html(date);
 
 
         if (isEditMode) {
