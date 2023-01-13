@@ -149,7 +149,7 @@
 
     const add = (title = "...", trans = "...") => {
         let tmp = $($(".t-task").html() + "");
-        tmp.find(".f-word>span").html(title);
+        tmp.find(".f-word").html(title);
         tmp.find(".f-trans").html(trans);
         $(".tasks").append(tmp);
     }
