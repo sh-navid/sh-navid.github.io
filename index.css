@@ -16,7 +16,7 @@
 }
 
 html {
-   touch-action: none;
+   /* touch-action: none; */
    padding: 0;
    margin: 0;
 }
@@ -25,7 +25,11 @@ body {
    background-color: var(--color-background);
    padding: 0;
    margin: 0;
-   position: fixed; left: 0; top: 0; right: 0; bottom: 0;
+   position: fixed;
+   left: 0;
+   top: 0;
+   right: 0;
+   bottom: 0;
 }
 
 .banner {
@@ -63,17 +67,9 @@ body {
    background-color: var(--color-primary);
    color: var(--color-text);
    padding: 1.2em !important;
-}
-
-.f-dec,
-.f-inc,
-.f-score {
-   text-align: center;
-}
-
-.f-word {
    position: relative;
    cursor: pointer;
+   text-align: center;
 }
 
 .f-dec {
@@ -84,7 +80,9 @@ body {
    background-color: rgb(14, 102, 90);
 }
 
-.f-trans {
+.f-trans,
+.f-word,
+.f-progress {
    direction: rtl;
    background-color: var(--color-accent);
    color: var(--color-text-over-primary);

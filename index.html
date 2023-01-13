@@ -32,9 +32,14 @@
 
 <template class="t-task">
     <div class="task row">
-        <div class="col s2 m1 f-field   f-dec   ">-</div>
-        <div class="col s8 m10 f-field   f-word  " onclick="showTrans(this)"><span>Word</span><div class="f-trans">Trans</div></div>
-        <div class="col s2 m1 f-field   f-inc   ">+</div>
+        <div class="col s2 m1  f-field   f-dec">-</div>
+        <div class="col s8 m10 f-field        " onclick="showTrans(this)">
+            <span>&nbsp;</span>
+            <div class="f-progress">P</div>
+            <div class="f-word">W</div>
+            <div class="f-trans">T</div>
+        </div>
+        <div class="col s2 m1  f-field   f-inc">+</div>
     </div>
 </template>
 
@@ -126,14 +131,14 @@
 
 
     let hideTransInt;
-    const showTrans=(el)=>{
+    const showTrans = (el) => {
         $(".f-trans").removeClass("active");
         $(el).children(".f-trans").addClass("active");
 
         clearTimeout(hideTransInt);
-        hideTransInt=setTimeout(()=>{
+        hideTransInt = setTimeout(() => {
             $(".f-trans").removeClass("active");
-        },3000);
+        }, 3000);
     }
 
     const loadTasks = () => {
