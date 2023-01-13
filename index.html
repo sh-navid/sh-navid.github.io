@@ -32,8 +32,7 @@
 
 <template class="t-task">
     <div class="task row">
-        <div class="col s4 m4 f-field   f-title ">Word</div>
-        <div class="col s4 m5 f-field   f-trans ">Trans</div>
+        <div class="col s8 m9 f-field   f-title " onclick="showTrans(this)">Word<div class="f-trans">Trans</div></div>
         <div class="col s1 m1 f-field   f-dec   ">-</div>
         <div class="col s2 m1 f-field   f-score ">0</div>
         <div class="col s1 m1 f-field   f-inc   ">+</div>
@@ -64,37 +63,87 @@
 
 <script>
     const data = [
-        { word: "Abandon", score: 0 },
-        { word: "Keen", score: 0 },
-        { word: "Jealous", score: 0 },
-        { word: "Tact", score: 0 },
-        { word: "Oath", score: 0 },
-        { word: "Vacant", score: 0 },
-        { word: "Hardship", score: 0 },
-        { word: "Gallant", score: 0 },
-        { word: "Data", score: 0 },
-        { word: "Unaccustomed", score: 0 },
+        {
+            id: 1,
+            word: "Abandon",
+            trans: "رها کردن",
+            score: 0
+        },
+        {
+            id: 2,
+            word: "Keen",
+            trans: "تیز",
+            score: 0
+        },
+        {
+            id: 3,
+            word: "Jealous",
+            trans: "حسود",
+            score: 0
+        },
+        {
+            id: 4,
+            word: "Tact",
+            trans: "تدبیر",
+            score: 0
+        },
+        {
+            id: 5,
+            word: "Oath",
+            trans: "سوگند، دشنام",
+            score: 0
+        },
+        {
+            id: 6,
+            word: "Vacant",
+            trans: "خالی",
+            score: 0
+        },
+        {
+            id: 7,
+            word: "Hardship",
+            trans: "سختی",
+            score: 0
+        },
+        {
+            id: 8,
+            word: "Gallant",
+            trans: "شجاع",
+            score: 0
+        },
+        {
+            id: 9,
+            word: "Data",
+            trans: "داده ها",
+            score: 0
+        },
+        {
+            id: 10,
+            word: "Unaccustomed",
+            trans: "غیرعادی",
+            score: 0
+        },
     ];
+
+    const showTrans=(el)=>{
+        $(".f-trans").removeClass("active");
+        $(el).children(".f-trans").addClass("active");
+
+        setTimeout(()=>{
+            $(".f-trans").removeClass("active");
+        },3000);
+    }
 
     const loadTasks = () => {
         data.forEach((t) => {
-            add(false, t["word"], t["trans"]);
+            add(t["word"], t["trans"]);
         });
     }
 
-    const add = (isEditMode = true, title = "...", date = "...") => {
+    const add = (title = "...", trans = "...") => {
         let tmp = $($(".t-task").html() + "");
         tmp.find(".f-title").html(title);
-        tmp.find(".f-trans>span").html(date);
-
-
-        if (isEditMode) {
-            tmp.find(".f-done").css({ "display": "none" })
-        } else {
-            tmp.find(".f-save").css({ "display": "none" })
-        }
-
-
+        tmp.find(".f-trans").html(trans);
         $(".tasks").append(tmp);
     }
 

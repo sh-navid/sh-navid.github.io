@@ -65,6 +65,7 @@ body {
    background-color: var(--color-primary);
    color: var(--color-text);
    padding: 1.2em !important;
+   position: relative;
 }
 
 .f-dec,
@@ -74,15 +75,24 @@ body {
 }
 
 .f-dec{
-   background-color: rgb(138, 35, 83);
+   background-color: var(--color-accent);
 }
 
 .f-inc{
    background-color: rgb(14, 102, 90);
 }
 
-.f-date>span {
-   font-size: 80%;
+.f-trans{
+   direction: rtl;
+   background-color: var(--color-accent);
+   color: var(--color-text-over-primary);
+   transition: all 1s;
+   position: absolute;
+   opacity: 0;
+}
+
+.f-trans.active{
+   opacity: 1;
 }
 
 .footer-container {
