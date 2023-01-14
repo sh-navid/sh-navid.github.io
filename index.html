@@ -131,6 +131,7 @@
 
 
     COLORS = ["CE93D8", "F48FB1", "EF9A9A", "FFAB91", "FFCC80", "FFD54F", "FFEE58", "CDDC39", "7CB342", "388E3C"];
+    FORECS = ["212121", "212121", "212121", "212121", "212121", "212121", "212121", "212121", "EFEFEF", "EFEFEF"];
 
 
     let hideTransInt;
@@ -154,6 +155,8 @@
         let tmp = $($(".t-task").html() + "");
         tmp.find(".f-word").html(title);
         tmp.find(".f-trans").html(trans);
+        tmp.find(".f-trans").css({ "background-color": "#" + COLORS[score - 1] });
+        tmp.find(".f-trans").css({ "color": "#" + FORECS[score - 1] });
 
 
         tmp.find(".f-progress").css({ "width": score * 10 + "%" });

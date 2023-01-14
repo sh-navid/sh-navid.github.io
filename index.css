@@ -73,11 +73,11 @@ body {
 }
 
 .f-dec {
-   background-color: var(--color-accent);
+   background-color: #CE93D8;
 }
 
 .f-inc {
-   background-color: rgb(14, 102, 90);
+   background-color: #388E3C;
 }
 
 .f-trans,
@@ -93,9 +93,8 @@ body {
    line-height: 3.4em;
 }
 
-.f-trans{
-   background-color: var(--color-accent);
-   color: var(--color-text-over-primary);
+.f-trans {
+   color: #212121;
    opacity: 0;
 }
 
@@ -103,8 +102,7 @@ body {
    opacity: 1;
 }
 
-.f-progress{
-   background-color: goldenrod;
+.f-progress {
    right: auto !important;
    top: auto;
    height: 1em;
