@@ -1,7 +1,7 @@
 // Helper link
 // https://bitsofco.de/setting-up-a-basic-service-worker/
 
-let cacheName = 'v1.10';
+let cacheName = 'v1.12';
 let cacheFiles = [
 	'./',
 	'./assets/icons/1.png',
