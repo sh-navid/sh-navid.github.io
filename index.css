@@ -65,7 +65,7 @@ body {
 .f-field {
    border: 1px solid var(--color-background);
    background-color: var(--color-primary);
-   color: var(--color-text);
+   color: var(--color-text-over-primary);
    padding: 1.2em !important;
    position: relative;
    cursor: pointer;
@@ -83,12 +83,8 @@ body {
 .f-trans,
 .f-word,
 .f-progress {
-   direction: rtl;
-   background-color: var(--color-accent);
-   color: var(--color-text-over-primary);
    transition: all 1s;
    position: absolute;
-   opacity: 0;
    left: 0;
    top: 0;
    right: 0;
@@ -97,8 +93,25 @@ body {
    line-height: 3.4em;
 }
 
+.f-trans{
+   background-color: var(--color-accent);
+   color: var(--color-text-over-primary);
+   opacity: 0;
+}
+
 .f-trans.active {
    opacity: 1;
+}
+
+.f-progress{
+   background-color: goldenrod;
+   right: auto !important;
+   top: auto;
+   height: 1em;
+   line-height: 1em;
+   width: 50%;
+   color: var(--color-background);
+   font-size: 70%;
 }
 
 .footer-container {
