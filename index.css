@@ -74,10 +74,12 @@ body {
 
 .f-dec {
    background-color: #CE93D8;
+   color:#212121;
 }
 
 .f-inc {
    background-color: #388E3C;
+   color: #efefef;
 }
 
 .f-trans,
