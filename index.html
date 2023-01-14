@@ -77,7 +77,7 @@
             id: 1,
             word: "Abandon",
             trans: "رها کردن",
-            score: 00
+            score: 10
         },
         {
             id: 2,
@@ -554,6 +554,17 @@
             score: 0
         }
     ];
+
+
+    let db;
+    let dbReq = window.indexedDB.open("WordDataBase", 3);
+    dbReq.onerror = (e) => {
+        console.error("IndexedDB Error: " + e.target.errorCode);
+    };
+    dbReq.onsuccess = (e) => {
+        db = e.target.result;
+    };
+
 
     COLORS = ["ffffff", "CE93D8", "F48FB1", "EF9A9A", "FFAB91", "FFCC80", "FFD54F", "FFEE58", "CDDC39", "7CB342", "4CAF50"];
     FORECS = ["212121", "212121", "212121", "212121", "212121", "212121", "212121", "212121", "212121", "EFEFEF", "EFEFEF"];
