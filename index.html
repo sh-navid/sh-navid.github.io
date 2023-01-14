@@ -32,14 +32,18 @@
 
 <template class="t-task">
     <div class="task row">
-        <div class="col s2 m1  f-field   f-dec">-</div>
-        <div class="col s8 m10 f-field        " onclick="showTrans(this)">
+        <div class="col s2 m1">
+            <div class="f-field f-dec">-</div>
+        </div>
+        <div class="col s8 m10 f-field" onclick="showTrans(this)">
             <span>&nbsp;</span>
             <div class="f-progress">P</div>
             <div class="f-word">W</div>
             <div class="f-trans">T</div>
         </div>
-        <div class="col s2 m1  f-field   f-inc">+</div>
+        <div class="col s2 m1">
+            <div class="f-field f-inc">+</div>
+        </div>
     </div>
 </template>
 
@@ -130,7 +134,7 @@
     ];
 
 
-    COLORS = ["CE93D8", "F48FB1", "EF9A9A", "FFAB91", "FFCC80", "FFD54F", "FFEE58", "CDDC39", "7CB342", "388E3C"];
+    COLORS = ["CE93D8", "F48FB1", "EF9A9A", "FFAB91", "FFCC80", "FFD54F", "FFEE58", "CDDC39", "7CB342", "4CAF50"];
     FORECS = ["212121", "212121", "212121", "212121", "212121", "212121", "212121", "212121", "EFEFEF", "EFEFEF"];
 
 

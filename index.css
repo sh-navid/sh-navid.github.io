@@ -1,7 +1,7 @@
 :root {
    --color-primary-dark: #303030;
    --color-primary: #414141;
-   --color-accent: #b11f57;
+   --color-accent: #E91E63;
    --color-text-over-primary: #efefef;
    --color-background: #212121;
    --color-text: #cecece;
@@ -25,11 +25,6 @@ body {
    background-color: var(--color-background);
    padding: 0;
    margin: 0;
-   position: fixed;
-   left: 0;
-   top: 0;
-   right: 0;
-   bottom: 0;
 }
 
 .banner {
@@ -70,15 +65,19 @@ body {
    position: relative;
    cursor: pointer;
    text-align: center;
+   width: 100%;
+   height: 100%;
+   border-radius: 10em;
+   overflow: hidden;
 }
 
 .f-dec {
-   background-color: #CE93D8;
-   color:#212121;
+   background-color: #E91E63;
+   color:#efefef;
 }
 
 .f-inc {
-   background-color: #388E3C;
+   background-color: #4CAF50;
    color: #efefef;
 }
 
