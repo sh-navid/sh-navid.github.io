@@ -7,7 +7,7 @@
    --color-text: #cecece;
    --color-footer-button-border: #212121;
    /**/
-   --add-btn-size: 5.6em;
+   --add-btn-size: 5em;
 }
 
 * {
@@ -53,6 +53,7 @@ body {
    bottom: 0;
    width: 50%;
    background-color: #4CAF50;
+   font-size: 70%;
 }
 
 .footer {
@@ -136,7 +137,7 @@ body {
 
 .footer-container {
    margin: 0 auto;
-   margin-top: -3em;
+   margin-top: -2em;
    text-align: center;
 }
 
