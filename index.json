@@ -1,10 +1,10 @@
 {
   "name": "EN 2 FA Flash Card",
   "short_name": "EN 2 FA",
-  "description": "A simple flashcard to learn words from english to persian",
+  "description": "A simple flashcard to learn words from english to persian.",
   "theme_color": "#303030",
   "background_color": "#303030",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "./",
   "start_url": "./",
   "lang": "en-US",

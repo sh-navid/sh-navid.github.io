@@ -135,13 +135,13 @@
         },
         {
             id: 11,
-            word: "-",
+            word: "Bachelor",
             trans: "-",
             score: 0
         },
         {
             id: 12,
-            word: "-",
+            word: "Qualify",
             trans: "-",
             score: 0
         },
@@ -557,13 +557,18 @@
 
 
     let db;
-    let dbReq = window.indexedDB.open("WordDataBase", 3);
-    dbReq.onerror = (e) => {
-        console.error("IndexedDB Error: " + e.target.errorCode);
-    };
-    dbReq.onsuccess = (e) => {
+    let store;
+    const request = window.indexedDB.open("WordDataBase", 3);
+    request.onerror = e => { console.error("IndexedDB Error: " + e.target.errorCode); };
+    request.onsuccess = e => { db = e.target.result; };
+    request.onupgradeneeded = e => {
         db = e.target.result;
+        const objectStore = db.createObjectStore("WordStore", { keyPath: "id" });
+        objectStore.createIndex("id", "id", { unique: true });
+        objectStore.createIndex("score", "score", { unique: false });
     };
+
+
 
 
     COLORS = ["ffffff", "CE93D8", "F48FB1", "EF9A9A", "FFAB91", "FFCC80", "FFD54F", "FFEE58", "CDDC39", "7CB342", "4CAF50"];
@@ -627,6 +632,9 @@
                 if (item.score > 10) item.score = 10;
                 else if (item.score < 0) item.score = 0;
                 update(id, item.score);
+
+                //readonly
+                db.transaction('default', 'readwrite').objectStore('default').put(item.id, item.score);
             }
         })
         updateBannerProgress();
