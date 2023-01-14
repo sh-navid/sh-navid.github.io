@@ -1,7 +1,7 @@
 // Helper link
 // https://bitsofco.de/setting-up-a-basic-service-worker/
 
-const cacheVersion = 'v1.25';
+const cacheVersion = 'v1.26';
 const cacheFiles = [
 	'./',
 	'./assets/icons/1.png?v=' + cacheVersion,
