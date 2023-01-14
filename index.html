@@ -32,7 +32,7 @@
 
 <template class="t-task">
     <div class="task row">
-        <div class="col s2 m1" onclick="decScore(this)">
+        <div class="col s2 m1" onclick="incScore(this,-1)">
             <div class="f-field f-dec">-</div>
         </div>
         <div class="col s8 m10 f-field" onclick="showTrans(this)">
@@ -41,7 +41,7 @@
             <div class="f-word">W</div>
             <div class="f-trans">T</div>
         </div>
-        <div class="col s2 m1" onclick="incScore(this)">
+        <div class="col s2 m1" onclick="incScore(this,1)">
             <div class="f-field f-inc">+</div>
         </div>
     </div>
@@ -175,11 +175,21 @@
         let cur = 0;
         for (let x of data)
             cur += x.score;
+        cur -= data.length;
         $(".banner-progress").css({ "width": (cur * 100 / max) + "%" });
+        $(".banner-progress").html(cur+"/100%")
     }
 
-    const incScore=(el)=>{
-
+    const incScore = (el, step = 1) => {
+        let id = parseInt($(el).parent().attr("wid"));
+        data.forEach((item) => {
+            if (item.id == id) {
+                item.score += step;
+                if (item.score > 10) item.score = 10;
+                else if (item.score < 1) item.score = 1;
+            }
+        })
+        updateBannerProgress();
     }
 
     updateBannerProgress();
