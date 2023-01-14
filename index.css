@@ -7,7 +7,7 @@
    --color-text: #cecece;
    --color-footer-button-border: #212121;
    /**/
-   --add-btn-size: 5em;
+   --add-btn-size: 4em;
 }
 
 * {
@@ -58,7 +58,7 @@ body {
 
 .footer {
    background-color: var(--color-primary-dark);
-   height: 4em;
+   height: 4.5em;
    position: fixed;
    display: block;
    left: 0;
@@ -68,7 +68,7 @@ body {
 
 .footer-dummy {
    margin-top: 3em;
-   height: 4em;
+   height: 4.5em;
    display: block;
 }
 
@@ -137,7 +137,7 @@ body {
 
 .footer-container {
    margin: 0 auto;
-   margin-top: -2em;
+   margin-top: .2em;
    text-align: center;
 }
 
