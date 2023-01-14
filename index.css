@@ -45,7 +45,7 @@ body {
    margin-bottom: 3em;
 }
 
-.banner-progress{
+.banner-progress {
    transition: all 1s;
    position: absolute;
    left: 0;
@@ -85,9 +85,16 @@ body {
    overflow: hidden;
 }
 
+.f-dec,
+.f-inc {
+   width: 1em;
+   height: 1em;
+   margin: 0 auto;
+}
+
 .f-dec {
    background-color: #E91E63;
-   color:#efefef;
+   color: #efefef;
 }
 
 .f-inc {
