@@ -1,15 +1,15 @@
 // Helper link
 // https://bitsofco.de/setting-up-a-basic-service-worker/
 
-let cacheName = 'v1.14';
-let cacheFiles = [
+const cacheVersion = 'v1.15';
+const cacheFiles = [
 	'./',
-	'./assets/icons/1.png',
-	'./assets/icons/2.png',
-	'./assets/icons/3.png',
-	'./index.html',
-	'./index.css',
-	'./index.js'
+	'./assets/icons/1.png?v=' + cacheVersion,
+	'./assets/icons/2.png?v=' + cacheVersion,
+	'./assets/icons/3.png?v=' + cacheVersion,
+	'./index.html?v=' + cacheVersion,
+	'./index.css?v=' + cacheVersion,
+	'./index.js?v=' + cacheVersion,
 ]
 
 // SW: Service Worker
@@ -17,7 +17,7 @@ let cacheFiles = [
 self.addEventListener('install', e => {
 	console.log('SW:: Install');
 	e.waitUntil(
-		caches.open(cacheName).then(cache => {
+		caches.open(cacheVersion).then(cache => {
 			console.log('SW:: Caching all: app shell and content');
 			return cache.addAll(cacheFiles);
 		})
@@ -32,7 +32,7 @@ self.addEventListener('fetch', e => {
 			return (
 				r ||
 				fetch(e.request).then(async response => {
-					const cache = await caches.open(cacheName);
+					const cache = await caches.open(cacheVersion);
 					console.log('SW:: Caching new resource: ' + e.request.url);
 					cache.put(e.request, response.clone());
 					return response;
@@ -48,7 +48,7 @@ self.addEventListener('activate', e => {
 		caches.keys().then(keyList => {
 			return Promise.all(
 				keyList.map(key => {
-					if (key !== cacheName) {
+					if (key !== cacheVersion) {
 						return caches.delete(key);
 					}
 				})
