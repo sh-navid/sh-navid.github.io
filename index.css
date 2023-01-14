@@ -35,10 +35,24 @@ body {
    left: 0;
    top: 0;
    right: 0;
+   z-index: 10000000;
+   opacity: .5;
+   text-align: center;
+   line-height: 1em;
 }
 
 .banner-dummy {
    margin-bottom: 3em;
+}
+
+.banner-progress{
+   transition: all 1s;
+   position: absolute;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   width: 50%;
+   background-color: #4CAF50;
 }
 
 .footer {

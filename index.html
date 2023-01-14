@@ -32,7 +32,7 @@
 
 <template class="t-task">
     <div class="task row">
-        <div class="col s2 m1">
+        <div class="col s2 m1" onclick="decScore(this)">
             <div class="f-field f-dec">-</div>
         </div>
         <div class="col s8 m10 f-field" onclick="showTrans(this)">
@@ -41,14 +41,16 @@
             <div class="f-word">W</div>
             <div class="f-trans">T</div>
         </div>
-        <div class="col s2 m1">
+        <div class="col s2 m1" onclick="incScore(this)">
             <div class="f-field f-inc">+</div>
         </div>
     </div>
 </template>
 
 <body>
-    <div class="container-fluid banner"></div>
+    <div class="container-fluid banner">
+        <div class="banner-progress"></div>
+    </div>
     <div class="container-fluid banner-dummy"></div>
     <div class="container">
         <div class="tasks"></div>
@@ -133,10 +135,8 @@
         },
     ];
 
-
     COLORS = ["CE93D8", "F48FB1", "EF9A9A", "FFAB91", "FFCC80", "FFD54F", "FFEE58", "CDDC39", "7CB342", "4CAF50"];
     FORECS = ["212121", "212121", "212121", "212121", "212121", "212121", "212121", "212121", "EFEFEF", "EFEFEF"];
-
 
     let hideTransInt;
     const showTrans = (el) => {
@@ -151,26 +151,38 @@
 
     const loadTasks = () => {
         data.forEach((t) => {
-            add(t["word"], t["trans"], t["score"]);
+            add(t["id"], t["word"], t["trans"], t["score"]);
         });
     }
 
-    const add = (title = "...", trans = "...", score = 1) => {
+    const add = (id = -1, title = "...", trans = "...", score = 1) => {
         let tmp = $($(".t-task").html() + "");
+        tmp.attr("wid", id);
+
         tmp.find(".f-word").html(title);
         tmp.find(".f-trans").html(trans);
         tmp.find(".f-trans").css({ "background-color": "#" + COLORS[score - 1] });
         tmp.find(".f-trans").css({ "color": "#" + FORECS[score - 1] });
 
-
         tmp.find(".f-progress").css({ "width": score * 10 + "%" });
         tmp.find(".f-progress").css({ "background-color": "#" + COLORS[score - 1] });
         tmp.find(".f-progress").html(score + "/10");
         $(".tasks").append(tmp);
+    }
 
+    const updateBannerProgress = () => {
+        let max = data.length * 9;
+        let cur = 0;
+        for (let x of data)
+            cur += x.score;
+        $(".banner-progress").css({ "width": (cur * 100 / max) + "%" });
+    }
+
+    const incScore=(el)=>{
 
     }
 
+    updateBannerProgress();
     loadTasks();
 </script>
 
