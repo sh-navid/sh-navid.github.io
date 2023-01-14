@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="manifest" href="index.json">
+    <link rel="manifest" href="manifest.json">
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -617,7 +617,7 @@
         let cur = 0;
         for (let x of data)
             cur += x.score;
-        per = (cur * 100 / max);
+        per = parseInt(cur * 100 / max);
         $(".banner-progress").css({ "width": per + "%" });
         $(".banner-progress").html(per + "/100%");
         if (per == 0) per = 1;
@@ -634,7 +634,7 @@
                 update(id, item.score);
 
                 //readonly
-                db.transaction('default', 'readwrite').objectStore('default').put(item.id, item.score);
+                //db.transaction('default', 'readwrite').objectStore('default').put(item.id, item.score);
             }
         })
         updateBannerProgress();

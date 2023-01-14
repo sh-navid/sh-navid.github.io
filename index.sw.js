@@ -2,6 +2,8 @@
 // https://bitsofco.de/setting-up-a-basic-service-worker/
 
 const cacheVersion = 'v1.36';
+
+// FIXME: should i index manifest too??; I think this is wrong
 const cacheFiles = [
 	'./',
 	'./assets/icons/1.png?v=' + cacheVersion,
