@@ -49,6 +49,7 @@
 
 <body>
     <div class="container-fluid banner">
+        <span></span>
         <div class="banner-progress"></div>
     </div>
     <div class="container-fluid banner-dummy"></div>
@@ -555,7 +556,6 @@
         }
     ];
 
-
     let db;
     let store;
     const request = window.indexedDB.open("WordDataBase", 3);
@@ -567,9 +567,6 @@
         objectStore.createIndex("id", "id", { unique: true });
         objectStore.createIndex("score", "score", { unique: false });
     };
-
-
-
 
     COLORS = ["EFEFEF", "CE93D8", "F48FB1", "EF9A9A", "FFAB91", "FFCC80", "FFD54F", "FFEE58", "CDDC39", "7CB342", "4CAF50"];
     FORECS = ["212121", "212121", "212121", "212121", "212121", "212121", "212121", "212121", "212121", "EFEFEF", "EFEFEF"];
@@ -620,7 +617,7 @@
             cur += x.score;
         per = parseInt(cur * 100 / max);
         $(".banner-progress").css({ "width": per + "%" });
-        $(".banner-progress").html(per + "/100%");
+        $(".banner>span").html(per + "/100%");
         if (per == 0) per = 1;
         $(".banner-progress").css({ "background-color": "#" + COLORS[parseInt(per / 10)] });
     }
