@@ -1,7 +1,7 @@
 // Helper link
 // https://bitsofco.de/setting-up-a-basic-service-worker/
 
-const cacheVersion = 'v1.38';
+const cacheVersion = 'v1.39';
 
 // FIXME: should i index manifest too??; I think this is wrong
 const cacheFiles = [
@@ -12,6 +12,7 @@ const cacheFiles = [
 	'./index.html?v=' + cacheVersion,
 	'./index.css?v=' + cacheVersion,
 	'./index.js?v=' + cacheVersion,
+	'./data.js?v=' + cacheVersion,
 	'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css',
 	'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js',
 	'https://code.jquery.com/jquery-3.6.3.min.js',
