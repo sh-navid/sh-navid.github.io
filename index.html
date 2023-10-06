@@ -1,72 +1,35 @@
 <html>
-<head>
+  <head>
     <style>
-        /* Set the background image */
-        body {
-            background-image: url("your-image.jpg");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Place the button in the middle of the screen */
-        #captureButton {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 10px 20px;
-            font-size: 20px;
-            background-color: #ffffff;
-            border: none;
-            cursor: pointer;
-        }
     </style>
-</head>
-<body>
-    <button id="captureButton">Capture 2</button>
+  </head>
+  <body>
+    <button id="start-camera">Start Camera</button>
+    <video id="video" width="400" height="400" autoplay></video>
+    <button id="click-photo">Click Camera</button>
+    <canvas id="canvas" width="400" height="400"></canvas>
 
-    <!-- Include the necessary JavaScript code -->
     <script>
-        // Get the capture button element
-        const captureButton = document.getElementById('captureButton');
+      let camera_button = document.querySelector("#start-camera");
+      let video = document.querySelector("#video");
+      let click_button = document.querySelector("#click-photo");
+      let canvas = document.querySelector("#canvas");
 
-        // Add click event listener to the button
-        captureButton.addEventListener('click', () => {
-            // Open the device's camera to capture a photo
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then((mediaStream) => {
-                    const video = document.createElement('video');
-                    video.srcObject = mediaStream;
-                    video.autoplay = true;
-
-                    // When the video element is loaded, capture a frame and set it as the background image
-                    video.onloadeddata = () => {
-                        const canvas = document.createElement('canvas');
-                        canvas.width = video.videoWidth;
-                        canvas.height = video.videoHeight;
-
-                        const context = canvas.getContext('2d');
-                        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-                        // Convert the captured frame to a data URL
-                        const dataURL = canvas.toDataURL();
-
-                        // Set the data URL as the background image
-                        document.body.style.backgroundImage = `url(${dataURL})`;
-
-                        // Stop the media stream and remove the video element
-                        mediaStream.getTracks().forEach(track => track.stop());
-                        video.remove();
-                    };
-                })
-                .catch((error) => {
-                    console.error('Error accessing camera:', error);
-                });
+      camera_button.addEventListener("click", async function () {
+        let stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
         });
+        video.srcObject = stream;
+      });
+
+      click_button.addEventListener("click", function () {
+        canvas
+          .getContext("2d")
+          .drawImage(video, 0, 0, canvas.width, canvas.height);
+        let image_data_url = canvas.toDataURL("image/jpeg");
+        console.log(image_data_url);
+      });
     </script>
-</body>
+  </body>
 </html>
