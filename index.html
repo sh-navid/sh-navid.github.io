@@ -1,63 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Camera App</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
+    <style>
+        /* Set the background image */
+        body {
+            background-image: url("your-image.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
 
-    #canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-    }
-
-    #captureButton {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1;
-    }
-  </style>
+        /* Place the button in the middle of the screen */
+        #captureButton {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <video id="video" autoplay></video>
-  <canvas id="canvas"></canvas>
-  <button id="captureButton">Capture</button>
+    <button id="captureButton">Capture 2</button>
 
-  <script>
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('canvas');
-    const context = canvas.getContext('2d');
-    const captureButton = document.getElementById('captureButton');
+    <!-- Include the necessary JavaScript code -->
+    <script>
+        // Get the capture button element
+        const captureButton = document.getElementById('captureButton');
 
-    // Set canvas size to match viewport
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+        // Add click event listener to the button
+        captureButton.addEventListener('click', () => {
+            // Open the device's camera to capture a photo
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((mediaStream) => {
+                    const video = document.createElement('video');
+                    video.srcObject = mediaStream;
+                    video.autoplay = true;
 
-    // Access the camera
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => {
-        video.srcObject = stream;
-      })
-      .catch(error => {
-        console.error('Error accessing the camera:', error);
-      });
+                    // When the video element is loaded, capture a frame and set it as the background image
+                    video.onloadeddata = () => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
 
-    // Capture the image
-    captureButton.addEventListener('click', () => {
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-      video.srcObject.getTracks().forEach(track => track.stop());
-      video.remove();
-      captureButton.remove();
-    });
-  </script>
+                        const context = canvas.getContext('2d');
+                        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                        // Convert the captured frame to a data URL
+                        const dataURL = canvas.toDataURL();
+
+                        // Set the data URL as the background image
+                        document.body.style.backgroundImage = `url(${dataURL})`;
+
+                        // Stop the media stream and remove the video element
+                        mediaStream.getTracks().forEach(track => track.stop());
+                        video.remove();
+                    };
+                })
+                .catch((error) => {
+                    console.error('Error accessing camera:', error);
+                });
+        });
+    </script>
 </body>
 </html>
